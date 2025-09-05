@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 12345
+
+  h2:
+    console:
+      enabled: true        # habilita la consola web
+      path: /h2-console    # URL de acceso: http://localhost:8080/h2-console
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update     # crea/actualiza tablas según tus entidades
+    show-sql: true         # muestra las consultas en consola
+    properties:
+      hibernate:
+        format_sql: true   # formatea las queries para que se lean mejor
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type: trace
+
